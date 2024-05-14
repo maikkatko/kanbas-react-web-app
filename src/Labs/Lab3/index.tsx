@@ -5,5 +5,3 @@ export default function Lab3() {
     </div>
   );
 }
-
-export { }
