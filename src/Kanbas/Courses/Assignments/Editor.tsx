@@ -25,6 +25,7 @@ export default function AssignmentEditor() {
           <td>
             <select id="wd-group">
               <option value="ASSIGNMENTS">ASSIGNMENTS</option>
+              <option value="PROJECTS">PROJECTS</option>
             </select>
           </td>
         </tr>
@@ -48,6 +49,7 @@ export default function AssignmentEditor() {
           <td>
             <select id="wd-submission-type">
               <option value="ONLINE">Online</option>
+              <option value="GITHUB">GitHub</option>
             </select>
             <br />
             <br />
