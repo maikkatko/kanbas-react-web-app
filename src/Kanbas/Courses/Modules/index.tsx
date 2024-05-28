@@ -1,9 +1,10 @@
+import ModulesControls from "./ModulesControls";
 export default function Modules() {
   return (
-    <div>
-      {/* Collapse All button, View Progress button, etc. */}
-      <ul id="wd-modules">
-        <li className="wd-module">
+    <div id="wd-modules">
+      <ModulesControls /><br /><br /><br /><br />
+      <ul id="wd-modules" className="list-group rounded-0">
+        <li className="wd-module list-group-item p-0 mb-5 fs-5 border-gray">
           <div className="wd-title">Week, Lecture 1 - Course Introduction, Syllbaus, Agenda</div>
           <ul className="wd-lessons">
             <li className="wd-lesson">
