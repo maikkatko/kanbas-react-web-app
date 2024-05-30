@@ -2,6 +2,7 @@ import { BsGripVertical } from "react-icons/bs";
 import ModulesControls from "./ModulesControls";
 import ModuleControlButtons from "./ModuleControlButtons";
 import LessonControlButtons from "./LessonControlButtons";
+import GreenBar from "./GreenBar";
 export default function Modules() {
   return (
     <div id="wd-modules">
@@ -15,6 +16,9 @@ export default function Modules() {
           </div>
           <ul className="wd-lessons list-group rounded-0">
             <li className="wd-lesson list-group-item p-3 ps-1">
+              <div className="col-12 col-md-6 col-xl-3 
+                      bg-success">
+              </div>
               <BsGripVertical className="me-2 fs-3" />
               LEARNING OBJECTIVES
               <LessonControlButtons />
