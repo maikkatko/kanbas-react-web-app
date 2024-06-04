@@ -43,7 +43,9 @@ export default function CssResponsiveFormsTwo() {
               <input className="form-check-input" type="checkbox"
                 id="r6" />
               <label className="form-check-label" htmlFor="r6">
-                Example checkbox </label> </div> </div>
+                Example checkbox </label>
+            </div>
+          </div>
         </div>
         <button type="submit" className="btn btn-primary">
           Sign in </button>

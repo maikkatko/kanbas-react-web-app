@@ -1,0 +1,23 @@
+#wd-grades-student-search-bar {
+  display: flex;
+  /* Allow inline display for icon and input */
+  align-items: center;
+  /* Align icon and text vertically */
+}
+
+#wd-grades-student-search-bar input[type="text"] {
+  padding-left: 39px;
+  /* Add padding to accommodate icon */
+}
+
+#wd-grades-assignment-search-bar {
+  display: flex;
+  /* Allow inline display for icon and input */
+  align-items: center;
+  /* Align icon and text vertically */
+}
+
+#wd-grades-assignment-search-bar input[type="text"] {
+  padding-left: 39px;
+  /* Add padding to accommodate icon */
+}

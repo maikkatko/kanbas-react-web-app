@@ -5,7 +5,7 @@ import { IoEllipsisVertical } from "react-icons/io5";
 export default function SectionControlButtons() {
   return (
     <div className="float-end">
-      <BsPlusLg className="fs-4" />
+      <BsPlusLg className="me-2 fs-4" />
       <IoEllipsisVertical className="fs-4" />
     </div>
   )

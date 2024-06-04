@@ -6,13 +6,17 @@ export default function CssPositionRelative() {
         <div className="wd-bg-color-yellow 
                       wd-dimension-portrait">
           <div className="wd-pos-relative-nudge-down-right">
-            Portrait</div></div>
+            Portrait
+          </div>
+        </div>
         <div className="wd-pos-relative-nudge-up-right 
                       wd-bg-color-blue wd-fg-color-white 
                       wd-dimension-landscape">
-          Landscape</div>
+          Landscape
+        </div>
         <div className="wd-bg-color-red wd-dimension-square">
-          Square</div>
+          Square
+        </div>
       </div>
     </div>
   )

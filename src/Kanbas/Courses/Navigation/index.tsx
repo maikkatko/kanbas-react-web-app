@@ -16,6 +16,10 @@ export default function CoursesNavigation() {
         className="list-group-item text-danger border border-0"> Quizzes </a>
       <a id="wd-course-grades-link" href="#/Kanbas/Courses/1234/Grades"
         className="list-group-item text-danger border border-0"> Grades </a>
+      <a id="wd-course-people-link" href="#/Kanbas/Courses/1234/People"
+        className="list-group-item text-danger border border-0"> People </a>
+      <a id="wd-course-settings-link" href="#/Kanbas/Courses/1234/Settings"
+        className="list-group-item text-danger border border-0"> Settings </a>
     </div>
   );
 }
