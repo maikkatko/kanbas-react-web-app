@@ -9,7 +9,7 @@ export default function ModulesControls() {
         Module
       </button>
       <div className="dropdown d-inline me-1 float-end">
-        <button id="wd-publish-all-btn" className="btn btn-lg btn-secondary dropdown-toggle"
+        <button id="wd-publish-all-btn" className="btn btn-lg btn-light dropdown-toggle"
           type="button" data-bs-toggle="dropdown">
           <GreenCheckmark />
           Publish All
@@ -42,13 +42,13 @@ export default function ModulesControls() {
         </ul>
       </div>
       <div className="me-1 float-end">
-        <button id="wd-view-progress-btn" className="btn btn-lg btn-secondary"
+        <button id="wd-view-progress-btn" className="btn btn-lg btn-light"
           type="button">
           View Progress
         </button>
       </div>
       <div className="me-1 float-end">
-        <button id="wd-collapse-all-btn" className="btn btn-lg btn-secondary"
+        <button id="wd-collapse-all-btn" className="btn btn-lg btn-light"
           type="button">
           Collapse All
         </button>

@@ -2,13 +2,13 @@ export default function AssignmentEditor() {
   return (
     <div id="wd-assignments-editor">
       <div className="row">
-        <div className="col-sm-12 mb-1">
+        <div className="col-sm-12 mb-3">
           <label htmlFor="wd-name" className="form-label">
             Assignment Name
           </label>
           <input id="wd-name" className="form-control" defaultValue="A1" />
-        </div><br />
-        <div className="col-sm-12 mb-1">
+        </div>
+        <div className="col-sm-12 mb-3">
           <div id="wd-description" className="form-control" contentEditable><br />
             The assignment is <span className="text-danger">available online</span><br /><br />
             Submit a link to the landing page of your Web application running on Netlify.<br /><br />
@@ -25,31 +25,39 @@ export default function AssignmentEditor() {
             The Kanbas application should include a link to navigate back to the landing page.
           </div>
         </div>
-      </div><br />
+      </div>
       <div className="row mb-3">
-        <label htmlFor="wd-points" className="col-sm-2 col-form-label text-right">
-          Points
-        </label>
-        <div className="col-10">
+        <div style={{ flex: '1', textAlign: 'right' }}>
+          <label htmlFor="wd-points" className="col-sm-2 col-form-label">
+            Points
+          </label>
+        </div>
+        <div className="col-10" style={{ flex: '2' }}>
           <input type="text" className="form-control" id="wd-points" defaultValue={100} />
         </div>
       </div>
       <div className="row mb-3">
-        <label htmlFor="wd-group" className="col-sm-2 col-form-label text-right">
-          Assignment Group
-        </label>
-        <div className="col-sm-10">
+        <div style={{ flex: '1', textAlign: 'right' }}>
+          <label htmlFor="wd-group" className="col-sm-10 col-form-label">
+            Assignment Group
+          </label>
+        </div>
+        <div className="col-sm-10" style={{ flex: '2' }}>
           <select id="wd-group" className="form-select">
             <option value="ASSIGNMENTS">ASSIGNMENTS</option>
             <option value="PROJECTS">PROJECTS</option>
+            <option value="PROJECTS">QUIZZES</option>
+            <option value="PROJECTS">EXAMS</option>
           </select>
         </div>
       </div>
       <div className="row mb-3">
-        <label htmlFor="wd-display-grade-as" className="col-sm-2 col-form-label text-right">
-          Display Grade as
-        </label>
-        <div className="col-sm-10">
+        <div style={{ flex: '1', textAlign: 'right' }}>
+          <label htmlFor="wd-display-grade-as" className="col-sm-10 col-form-label">
+            Display Grade as
+          </label>
+        </div>
+        <div className="col-sm-10" style={{ flex: '2' }}>
           <select id="wd-display-grade-as" className="form-select">
             <option value="PERCENTAGE">Percentage</option>
             <option value="POINTS">Points</option>
@@ -57,10 +65,12 @@ export default function AssignmentEditor() {
         </div>
       </div>
       <div className="row mb-3">
-        <label htmlFor="wd-submission-form" className="col-sm-2 col-form-label text-right">
-          Submission Type
-        </label>
-        <div className="col-10">
+        <div style={{ flex: '1', textAlign: 'right' }}>
+          <label htmlFor="wd-submission-form" className="col-sm-10 col-form-label">
+            Submission Type
+          </label>
+        </div>
+        <div className="col-sm-10" style={{ flex: '2' }}>
           <div id="wd-submission-form">
             <div className="form-control">
               <select id="wd-submission-type" className="form-select">
@@ -70,7 +80,7 @@ export default function AssignmentEditor() {
               <label htmlFor="wd-submission-check-list" className="fw-bold"><br />
                 Online Entry Options
               </label>
-              <div id="wd-submission-check-list"><br />
+              <div id="wd-submission-check-list" className="mb-3"><br />
                 <fieldset>
                   <div className="form-check">
                     <input className="form-check-input" type="checkbox"
@@ -109,10 +119,12 @@ export default function AssignmentEditor() {
         </div>
       </div>
       <div className="row mb-3">
-        <label htmlFor="wd-assign-to-form" className="col-2 col-form-label text-right">
-          Assign
-        </label>
-        <div className="col-10">
+        <div style={{ flex: '1', textAlign: 'right' }}>
+          <label htmlFor="wd-assign-to-form" className="col-10 col-form-label">
+            Assign
+          </label>
+        </div>
+        <div className="col-sm-10 mb-3" style={{ flex: '2' }}>
           <div id="wd-assign-to-form">
             <div className="form-control col-sm-10">
               <label htmlFor="wd-assign-to" className="fw-bold">Assign to</label>
@@ -121,7 +133,7 @@ export default function AssignmentEditor() {
               <label htmlFor="wd-due-date" className="fw-bold">Due</label>
               <input type="date" className="form-control" defaultValue={"2024-05-13"} id="wd-due-date" />
               <br />
-              <div className="row mb-3">
+              <div className="row mb-4">
                 <div className="col-4">
                   <label htmlFor="wd-available-from" className="fw-bold">
                     Available from

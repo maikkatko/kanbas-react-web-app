@@ -10,7 +10,7 @@ export default function Assignments() {
     <div id="wd-assignments">
       <AssignmentControls /><br /><br />
       <ul id="wd-assignments" className="list-group rounded-0">
-        <li className="wd-assignment list-group-item p-0 mb-5 fs-5 border-gray">
+        <li className="wd-assignment list-group-item p-0 mb-5 fs-5 ">
           <div className="wd-title p-3 ps-2 bg-light">
             <BsGripVertical className="me-2 fs-3" />
             <button id="wd-publish-all-btn" className="btn btn-lg btn-light dropdown-toggle"
@@ -23,7 +23,7 @@ export default function Assignments() {
             </span>
           </div>
           <div id="wd-assignment-list">
-            <ul className="wd-assignment list-group rounded-0">
+            <ul className="wd-assignment list-group rounded-0 rounded-0 border-5 border-start border-success">
               <li className="wd-assignment list-group-item p-3 ps-1">
                 <div className="row">
                   <div className="col"><br />
