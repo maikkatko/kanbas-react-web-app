@@ -1,7 +1,29 @@
 import "./index.css";
+import { Link } from "react-router-dom";
+
 export default function CoursesNavigation() {
+  const links = [
+    "Home",
+    "Modules",
+    "Piazza",
+    "Zoom",
+    "Assignments",
+    "Quizzes",
+    "Grades"
+  ];
+
   return (
     <div id="wd-courses-navigation" className="list-group fs-5 rounded-0">
+      {
+        Links.map((Link) => (
+          <Link>
+          </Link>
+        )
+      }
+
+
+
+
       <a id="wd-course-home-link" href="#/Kanbas/Courses/1234/Home"
         className="list-group-item active border border-0"> Home </a>
       <a id="wd-course-modules-link" href="#/Kanbas/Courses/1234/Modules"
