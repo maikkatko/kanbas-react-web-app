@@ -6,6 +6,7 @@ import ModulesControls from "./ModulesControls";
 import ModuleControlButtons from "./ModuleControlButtons";
 import LessonControlButtons from "./LessonControlButtons";
 import GreenBar from "./GreenBar";
+
 export default function Modules() {
   const { cid } = useParams();
   const modules = db.modules;
@@ -16,7 +17,7 @@ export default function Modules() {
         {modules
           .filter((module: any) => module.course === cid)
           .map((module: any) => (
-            <li className="wd-module list-group-item p-0 mb-5 fs-5 border-gray">
+            <li className="wd-module list-group-item p-0 mb-5 fs-5">
               <div className="wd-title p-3 ps-2 bg-light">
                 <BsGripVertical className="me-2 fs-3" />
                 {module.name}
