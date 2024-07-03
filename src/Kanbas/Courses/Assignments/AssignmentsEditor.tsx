@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import * as db from "../../Database";
 import { Link } from "react-router-dom";
 import { Console } from "console";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { addAssignment, updateAssignment } from "./reducer";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -21,8 +21,13 @@ export default function AssignmentsEditor() {
 
   const handleSave = () => {
     if (aid === "New") {
+      const newAssignment = {
+        ...assignment,
+        _id: new Date().getTime().toString(), // Generate a new ID
+        course: cid, // Set the course ID from URL params
+      };
       // Call the create assignment function
-      dispatch(addAssignment(assignment));
+      dispatch(addAssignment(newAssignment));
     } else {
       // Call the update assignment function
       dispatch(updateAssignment(assignment));
@@ -36,12 +41,16 @@ export default function AssignmentsEditor() {
           <label htmlFor="wd-name" className="form-label">
             Assignment Name
           </label>
-          <input id="wd-name" className="form-control" defaultValue={assignment.title} onChange={(e) => setAssignment({ ...assignment, title: e.target.value })} />
+          <input
+            id="wd-name"
+            className="form-control"
+            defaultValue={assignment.title}
+            onChange={(e) => setAssignment({ ...assignment, title: e.target.value })} />
         </div>
         <div className="col-sm-12 mb-3">
-          <span id="wd-description" className="form-control">
+          <textarea id="wd-description" className="form-control">
             {assignment.description}
-          </span>
+          </textarea>
         </div>
       </div>
       <div className="row mb-3">
@@ -51,7 +60,12 @@ export default function AssignmentsEditor() {
           </label>
         </div>
         <div className="col-10" style={{ flex: '2' }}>
-          <input type="text" className="form-control" id="wd-points" defaultValue={assignment.points} onChange={(e) => setAssignment({ ...assignment, points: e.target.value })} />
+          <input
+            type="text"
+            className="form-control"
+            id="wd-points"
+            defaultValue={assignment.points}
+            onChange={(e) => setAssignment({ ...assignment, points: e.target.value })} />
         </div>
       </div>
       <div className="row mb-3">
@@ -64,25 +78,40 @@ export default function AssignmentsEditor() {
           <div id="wd-assign-to-form">
             <div className="form-control col-sm-10">
               <label htmlFor="wd-assign-to" className="fw-bold">Assign to</label>
-              <input type="text" className="form-control" placeholder="Everyone" id="wd-assign-to" />
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Everyone"
+                id="wd-assign-to" />
               <br />
               <label htmlFor="wd-due-date" className="fw-bold">Due</label>
-              <input type="date" className="form-control" defaultValue={assignment.due_date_for_editor} id="wd-due-date" onChange={(e) => setAssignment({ ...assignment, due_date_for_editor: e.target.value })} />
+              <input
+                type="date"
+                className="form-control"
+                defaultValue={assignment.due_date_for_editor}
+                id="wd-due-date"
+                onChange={(e) => setAssignment({ ...assignment, due_date_for_editor: e.target.value })} />
               <br />
               <div className="row mb-4">
                 <div className="col-4">
                   <label htmlFor="wd-available-from" className="fw-bold">
                     Available from
                   </label>
-                  <input type="date" className="form-control"
-                    defaultValue={assignment.avail_from_date_for_editor} id="wd-available-from" onChange={(e) => setAssignment({ ...assignment, avail_from_date_for_editor: e.target.value })} />
+                  <input
+                    type="date"
+                    className="form-control"
+                    defaultValue={assignment.avail_from_date_for_editor} id="wd-available-from"
+                    onChange={(e) => setAssignment({ ...assignment, avail_from_date_for_editor: e.target.value })} />
                 </div>
                 <div className="col-4">
                   <label htmlFor="wd-available-until" className="fw-bold">
                     Until
                   </label>
-                  <input type="date" className="form-control"
-                    defaultValue={assignment.avail_until_date_for_editor} id="wd-available-until" onChange={(e) => setAssignment({ ...assignment, avail_until_date_for_editor: e.target.value })} />
+                  <input
+                    type="date"
+                    className="form-control"
+                    defaultValue={assignment.avail_until_date_for_editor} id="wd-available-until"
+                    onChange={(e) => setAssignment({ ...assignment, avail_until_date_for_editor: e.target.value })} />
                 </div>
               </div>
             </div>
