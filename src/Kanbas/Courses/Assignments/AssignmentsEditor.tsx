@@ -22,13 +22,11 @@ export default function AssignmentsEditor() {
     if (aid === "New") {
       const newAssignment = {
         ...assignment,
-        _id: new Date().getTime().toString(), // Generate a new ID
-        course: cid, // Set the course ID from URL params
+        _id: new Date().getTime().toString(),
+        course: cid
       };
-      // Call the create assignment function
       dispatch(addAssignment(newAssignment));
     } else {
-      // Call the update assignment function
       dispatch(updateAssignment(assignment));
     }
   };
