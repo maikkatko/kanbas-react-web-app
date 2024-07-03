@@ -1,8 +1,5 @@
 import { useParams } from "react-router";
-
-import * as db from "../../Database";
 import { Link } from "react-router-dom";
-import { Console } from "console";
 import { useState } from "react";
 import { addAssignment, updateAssignment } from "./reducer";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,7 +12,9 @@ export default function AssignmentsEditor() {
   const assignmentDefaults = useSelector((state: any) => state.assignmentsReducer.assignmentDefaults);
   const dispatch = useDispatch();
 
-  const initialAssignment = aid === 'New' ? { ...assignmentDefaults } : assignments.find((a: any) => a._id === aid);
+  const initialAssignment = aid === 'New' ?
+    { ...assignmentDefaults } :
+    assignments.find((a: any) => a._id === aid);
 
   const [assignment, setAssignment] = useState(initialAssignment);
 
