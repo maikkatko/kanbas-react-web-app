@@ -9,9 +9,9 @@ export default function TodoList() {
       <h2>Todo List</h2>
       <ul className="list-group">
         <TodoForm />
-        {todos.map((todo: any) => (
+        {/* {todos.map((todo: any) => (
           <TodoItem todo={todo} />
-        ))}
+        ))} */}
       </ul>
       <hr />
     </div>

@@ -1,20 +1,53 @@
+import { addAssignment, deleteAssignment }
+  from "./reducer";
+
 import { BsGripVertical, BsPlusLg } from "react-icons/bs";
-import AssignmentControls from "./AssignmentsControls";
 import AssignmentControlButtons from "./AssignmentControlButtons";
 import { MdOutlineAssignment } from "react-icons/md";
 import SectionControlButtons from "./SectionControlButtons";
 
 import { useParams } from "react-router";
-import * as db from "../../Database";
 import "./index.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { FaPlus } from "react-icons/fa";
+import { CiSearch } from "react-icons/ci";
 
 export default function Assignments() {
-  const { cid } = useParams();
-  const assignments = db.assignments;
+  const paramcid = useParams();
+  const cid = paramcid.cid;
+  const [assignmentName, setAssignmentName] = useState("");
+  const { assignments } = useSelector((state: any) => state.assignmentsReducer);
+  const dispatch = useDispatch();
+
   return (
     <div id="wd-assignments">
-      <AssignmentControls /><br /><br />
+      <div id="wd-assignments-controls" className="text-nowrap">
+        <Link key={`${cid}/New`} to={`${cid}/New`} id="wd-add-assignment-btn" className="btn btn-lg btn-danger me-1 float-end" >
+          <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} />
+          Assignment
+        </Link>
+        <div className="me-1 float-end">
+          <button id="wd-view-progress-btn" className="btn btn-lg btn-light"
+            type="button">
+            <BsPlusLg className="position-relative me-2" style={{ bottom: "1px" }} />
+            Group
+          </button>
+        </div>
+        <div id="wd-assignment-search-bar">
+          <div className="wd-pos-relative">
+            <div className="wd-pos-absolute-10-10">
+              <CiSearch size={30} />
+            </div>
+            <input
+              type="text"
+              className="form-control form-control-lg"
+              placeholder="Search...">
+            </input>
+          </div>
+        </div>
+      </div><br />
       <ul id="wd-assignments" className="list-group rounded-0">
         <div className="wd-title p-3 ps-2 bg-light">
           <BsGripVertical className="me-2 fs-3" />
@@ -39,18 +72,22 @@ export default function Assignments() {
                       <MdOutlineAssignment className="me-2 fs-4" />
                     </div>
                     <div className="col-9">
-                      <Link
-                        to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}
-                        className="wd-assignment-link link-dark fw-bold text-decoration-none"
-                      >
-                        {assignment.title}
-                      </Link>
+                      <Link key={`${assignment.course}/${assignment._id}`} to={`${assignment.course}/${assignment._id}`} className="wd-assignment-link ms-5"
+                        style={{ color: "black", textDecoration: "none" }}>
+                        <br />
+                        <b>{assignment.title}</b>
+                      </Link><br />
                       <div>
                         <span className="text-danger">Multiple Modules</span> | <b>Not Available Until</b> {assignment.avail_from_date} at 12:00am | <b>Due</b> {assignment.due_date} at 11:59pm | {assignment.points} pts
                       </div>
                     </div>
                     <div className="col"><br />
-                      <AssignmentControlButtons />
+                      <AssignmentControlButtons
+                        assignmentId={assignment._id}
+                        deleteAssignment={(assignmentId) => {
+                          dispatch(deleteAssignment(assignmentId));
+                        }}
+                      />
                     </div>
                   </div>
                 </li>
