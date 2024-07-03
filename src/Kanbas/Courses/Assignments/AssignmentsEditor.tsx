@@ -5,37 +5,19 @@ import { Link } from "react-router-dom";
 import { Console } from "console";
 import { useEffect, useState } from "react";
 import { addAssignment, updateAssignment } from "./reducer";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function AssignmentsEditor() {
   const params = useParams();
   const cid = params.cid;
   const aid = params.id;
-  const assignments = db.assignments;
+  const { assignments } = useSelector((state: any) => state.assignmentsReducer);
+  const assignmentDefaults = useSelector((state: any) => state.assignmentsReducer.assignmentDefaults);
   const dispatch = useDispatch();
-  const [assignment, setAssignment] = useState({
-    _id: new Date().getTime().toString(),
-    title: "New Title",
-    course: cid,
-    description: "New Description",
-    points: "100",
-    group: "",
-    due_date: "",
-    due_date_for_editor: "",
-    avail_from_date: "",
-    avail_from_date_for_editor: "",
-    avail_until_date_for_editor: ""
-  });
 
-  useEffect(() => {
-    if (aid !== "New") {
-      const existingAssignment = assignments.find((a: any) => a._id === aid);
-      if (existingAssignment) {
-        console.log(existingAssignment)
-        setAssignment(existingAssignment);
-      }
-    }
-  }, [aid, assignments]);
+  const initialAssignment = aid === 'New' ? { ...assignmentDefaults } : assignments.find((a: any) => a._id === aid);
+
+  const [assignment, setAssignment] = useState(initialAssignment);
 
   const handleSave = () => {
     if (aid === "New") {

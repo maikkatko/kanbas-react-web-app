@@ -2,6 +2,19 @@ import { createSlice } from "@reduxjs/toolkit";
 import { assignments } from "../../Database";
 const initialState = {
   assignments: assignments,
+  assignmentDefaults: {
+    _id: '',
+    title: 'New Title',
+    course: '',
+    description: 'New Description',
+    points: '100',
+    group: '',
+    due_date: '',
+    due_date_for_editor: '',
+    avail_from_date: '',
+    avail_from_date_for_editor: '',
+    avail_until_date_for_editor: '',
+  }
 };
 const assignmentsSlice = createSlice({
   name: "assignments",
