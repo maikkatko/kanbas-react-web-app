@@ -18,7 +18,7 @@ export default function Lab4() {
   }
   return (
     <div className="container">
-      <h1>Lab 4</h1>
+      <h1>Lab 4 test</h1>
       <ClickEvent />
       <PassingDataOnEvent />
       <PassingFunctions theFunction={sayHello} />
