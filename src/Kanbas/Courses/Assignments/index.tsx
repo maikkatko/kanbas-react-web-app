@@ -1,4 +1,4 @@
-import { addAssignment, deleteAssignment }
+import { setAssignments, deleteAssignment }
   from "./reducer";
 
 import { BsGripVertical, BsPlusLg } from "react-icons/bs";
@@ -9,17 +9,31 @@ import SectionControlButtons from "./SectionControlButtons";
 import { useParams } from "react-router";
 import "./index.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FaPlus } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
+import * as client from "./client";
 
 export default function Assignments() {
   const paramcid = useParams();
   const cid = paramcid.cid;
-  const [assignmentName, setAssignmentName] = useState("");
   const { assignments } = useSelector((state: any) => state.assignmentsReducer);
   const dispatch = useDispatch();
+
+  const fetchAssignments = async () => {
+    const assignments = await client.findAssignmentsForCourse(cid as string);
+    dispatch(setAssignments(assignments));
+  };
+
+  const removeAssignment = async (assignmentId: string) => {
+    await client.deleteAssignment(assignmentId);
+    dispatch(deleteAssignment(assignmentId));
+  };
+
+  useEffect(() => {
+    fetchAssignments();
+  }, []);
 
   return (
     <div id="wd-assignments">
@@ -85,7 +99,7 @@ export default function Assignments() {
                       <AssignmentControlButtons
                         assignmentId={assignment._id}
                         deleteAssignment={(assignmentId) => {
-                          dispatch(deleteAssignment(assignmentId));
+                          removeAssignment(assignmentId);
                         }}
                       />
                     </div>
