@@ -3,6 +3,7 @@ const REMOTE_SERVER = process.env.REACT_APP_REMOTE_SERVER;
 const COURSES_API = `${REMOTE_SERVER}/api/courses`;
 const ASSIGNMENTS_API = `${REMOTE_SERVER}/api/assignments`;
 
+//client to connect to server
 export const deleteAssignment = async (assignmentId: string) => {
   const response = await axios
     .delete(`${ASSIGNMENTS_API}/${assignmentId}`);
