@@ -37,6 +37,7 @@ export default function Modules() {
 
   useEffect(() => {
     fetchModules();
+    console.log(modules);
   }, []);
 
   return (
@@ -71,7 +72,8 @@ export default function Modules() {
                 <ModuleControlButtons
                   moduleId={module._id}
                   deleteModule={(moduleId) => {
-                    removeModule(moduleId);;
+                    console.log(moduleId);
+                    removeModule(moduleId);
                   }}
                   editModule={(moduleId) => dispatch(editModule(moduleId))}
                 />

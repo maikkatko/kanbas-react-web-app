@@ -8,22 +8,21 @@ import * as client from "./Courses/client";
 import { Provider } from "react-redux";
 import store from "./store";
 import Account from "./Account";
-import ProtectedRoute from "./ProtextedRoute";
+import ProtectedRoute from "./ProtectedRoute";
 
 export default function Kanbas() {
   const [courses, setCourses] = useState<any[]>([]);
+
   const fetchCourses = async () => {
     const courses = await client.fetchAllCourses();
     setCourses(courses);
   };
-  useEffect(() => {
-    fetchCourses();
-  }, []);
 
   const [course, setCourse] = useState<any>({
-    _id: "1234", name: "New Course", number: "New Number",
+    name: "New Course", number: "New Number",
     startDate: "2023-09-10", endDate: "2023-12-15", description: "New Description",
   });
+
   const addNewCourse = async () => {
     const newCourse = await client.createCourse(course);
     setCourses([...courses, newCourse]);
@@ -34,7 +33,6 @@ export default function Kanbas() {
     setCourses(courses.filter(
       (c) => c._id !== courseId));
   };
-
 
   const updateCourse = async () => {
     await client.updateCourse(course);
@@ -48,6 +46,10 @@ export default function Kanbas() {
       })
     );
   };
+
+  useEffect(() => {
+    fetchCourses();
+  }, []);
 
   return (
     <Provider store={store}>
